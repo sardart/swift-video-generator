@@ -144,7 +144,7 @@ public class VideoGenerator: NSObject {
             assert(pixelBufferAdaptor.pixelBufferPool != nil)
             
             /// create/access separate queue for the generation process
-            let media_queue = DispatchQueue(label: "mediaInputQueue", attributes: [])
+            let media_queue = DispatchQueue(label: "mediaInputQueue", qos: .userInitiated)
             
             /// start video generation on a separate queue
             videoWriterInput.requestMediaDataWhenReady(on: media_queue, using: { () -> Void in
