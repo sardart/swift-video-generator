@@ -78,7 +78,7 @@ public class VideoGenerator: NSObject {
    */
   open func generate(withImages _images: [UIImage], andAudios _audios: [URL], andType _type: VideoGeneratorType, _ progress: @escaping ((Progress) -> Void), outcome: @escaping (Result<URL, Error>) -> Void) {
     
-    let dispatchQueueGenerate = DispatchQueue(label: "generate", qos: .background)
+    let dispatchQueueGenerate = DispatchQueue(label: "generate", qos: .userInitiated)
     
     dispatchQueueGenerate.async { [weak self] in
       
